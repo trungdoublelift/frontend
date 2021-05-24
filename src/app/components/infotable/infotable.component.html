@@ -1,0 +1,31 @@
+
+<div id="table">
+    <table class="table align-middle">
+        <thead>
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">ID sinh viên</th>
+                <th scope="col">Họ Tên</th>
+                <th scope="col">Email</th>
+                <th scope="col">Tình trạng</th>
+                <th scope="col">Chức năng</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr scope="row" *ngFor="let sinhvien of this.sinhviens |async">
+                <th></th>
+                <td>{{sinhvien.id}}</td>
+                <td>{{sinhvien.name}}</td>
+                <td>{{sinhvien.email}}</td>
+                <td *ngIf="sinhvien.graduated==false" id="ungraduated">Chưa tốt nghiệp</td>
+                <td *ngIf="sinhvien.graduated==true"id="graduated">Đã tốt nghiệp</td>
+                <td>
+                    <button type="button" class="btn btn-warning btn-sm px-3">Update<i class="fas fa-times"></i>
+                    </button>
+                    <button type="button" class="btn btn-safe btn-sm px-3">Chi tiết<i class="fas fa-times"></i>
+                    </button>
+                    <button type="button" class="btn btn-danger btn-sm px-3" (click)="deleteSV(sinhvien)" *ngIf="sinhvien.graduated==false">Xóa<i class="fas fa-times"></i>
+                    </button>
+                </td>
+            </tr>
+
