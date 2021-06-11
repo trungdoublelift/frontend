@@ -5,6 +5,7 @@ import { AddstudentRoutingModule } from './addstudent-routing.module';
 import { AddstudentComponent } from './addstudent.component';
 
 
+
 @NgModule({
   declarations: [
     AddstudentComponent
